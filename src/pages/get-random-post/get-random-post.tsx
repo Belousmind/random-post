@@ -1,3 +1,4 @@
+import styles from './random-post.module.scss'
 import { useState } from "react";
 import { fetchRandomPost, Post } from "../../shared/api/fetch-posts";
 import { getRandomNumber } from "../../shared/helpers/get-random-number";
@@ -20,14 +21,14 @@ const GetRandomPostPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>Случайный пост</h1>
       <button onClick={handleGetPost} disabled={loading}>
         {loading ? "Загрузка..." : "Получить"}
       </button>
 
       {post && (
-        <div>
+        <div className={styles.post}>
           <h2>{post.title}</h2>
         </div>
       )}
