@@ -1,4 +1,10 @@
-export const ROUTES = {
-  HOME: "/",
-  POST: "/random-post",
+export const routes = {
+  main: {
+    getLink: () => "/",
+    pathname: "/",
+  },
+  randomPost: {
+    getLink: () => "/random-post",
+    pathname: "/random-post",
+  },
 };

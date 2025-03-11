@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { ROUTES } from "../services/routes";
+import { routes } from "../services/routes";
 
 const Header = () => {
   return (
     <nav >
-      <Link to={ROUTES.HOME}>
+      <Link to={routes.main.getLink()}>
         Главная
       </Link>
-      <Link to={ROUTES.POST}>
+      <Link to={routes.randomPost.getLink()}>
         Рандомный пост
       </Link>
     </nav>
