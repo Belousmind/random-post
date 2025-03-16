@@ -25,7 +25,6 @@ const Landing = () => {
       <div
         className="screen"
         id="second-screen"
-        // style={{ backgroundColor: '#E0E0E0' }}
       >
         <h3>Смотрите какие карточки</h3>
         <div className="cards-container">
@@ -35,7 +34,7 @@ const Landing = () => {
 
       <div className="block">
         <h5>Интерактив?</h5>
-        <input type="text" placeholder="Напишите тут что-нибудь" />
+        <input type="text" placeholder="Напишите тут что-нибудь"/>
         <a href="#first-screen">Перейти дальше</a>
         <button>Вывести текст в alert <SvgAlert/></button>
       </div>
