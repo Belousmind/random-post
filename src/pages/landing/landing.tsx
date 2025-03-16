@@ -1,4 +1,6 @@
 import Card from "../../shared/UI/card/card"
+import SvgAlert from "../../shared/UI/svg/svg-alert"
+import SvgGoFurther from "../../shared/UI/svg/svg-go-further"
 
 const Landing = () => {
 
@@ -16,7 +18,7 @@ const Landing = () => {
       >
         <h2>Интересные факты про эту страницу</h2>
         <p>В ней нет смысла</p>
-        <a href="#second-screen">Перейти дальше</a>
+        <a href="#second-screen">Перейти дальше <SvgGoFurther/></a>
 
       </div>
 
@@ -35,11 +37,7 @@ const Landing = () => {
         <h5>Интерактив?</h5>
         <input type="text" placeholder="Напишите тут что-нибудь" />
         <a href="#first-screen">Перейти дальше</a>
-        <button>Вывести текст в alert</button>
-        {/* <button onClick={() => navigate('#')}>
-          Вывести текст в alert
-
-        </button> */}
+        <button>Вывести текст в alert <SvgAlert/></button>
       </div>
   </main>
   )
