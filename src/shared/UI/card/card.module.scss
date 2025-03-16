@@ -3,23 +3,17 @@
 .card {
   max-width: 300px;
   width: 100%;
-  
   margin: $spacing-12;
   padding: $spacing-12;
-
   overflow: hidden;
-
   background-color: $white;
   border: 1px solid $grey;
-
   border-radius: $radius-8;
-
   box-shadow: $box-shadow-light;
 
-  @media screen and (min-width: 380px) {
+  @media screen and (width >= 380px) {
     margin: $spacing-20;
     padding: $spacing-20;
     width: 300px;
   }
-
 }

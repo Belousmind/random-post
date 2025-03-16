@@ -20,7 +20,10 @@ const Landing = () => {
       >
         <h1>Интересные факты про эту страницу</h1>
         <p>В ней нет смысла</p>
-        <a href="#second-screen">Перейти дальше <SvgGoFurther/></a>
+        <a
+          className={styles["action-trigger"]}  
+          href="#second-screen"
+        >Перейти дальше <SvgGoFurther/></a>
 
       </section>
 
@@ -37,8 +40,13 @@ const Landing = () => {
       <section className={styles.block}>
         <h3>Интерактив?</h3>
         <input type="text" placeholder="Напишите тут что-нибудь"/>
-        <a href="#first-screen">Вернуться <SvgGoFurther/></a>
-        <button>Вывести текст в alert <SvgAlert/></button>
+        <a
+          className={styles["action-trigger"]} 
+          href="#first-screen"
+        >Вернуться <SvgGoFurther/></a>
+        <button
+          className={styles["action-trigger"]}
+        >Вывести текст в alert <SvgAlert/></button>
       </section>
   </main>
   )

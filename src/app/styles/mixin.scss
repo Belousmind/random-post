@@ -9,11 +9,13 @@
 
 @mixin flex-column {
   @include flex;
+
   flex-direction: column;
 }
 
 @mixin flex-column-screen {
   @include flex-column;
+
   gap: $spacing-10;
   padding: $spacing-20;
   text-align: center;
