@@ -1,0 +1,52 @@
+@use "../../app/styles/mixin" as *;
+@use "../../app/styles/variables.scss" as *;
+
+.example-homework {
+	overflow-x: hidden;
+	font-family: Arial, sans-serif;
+
+	.screen {
+    @include flex-column-screen;
+	}
+
+  .screen:nth-child(even) {
+    background-color: $ligth-grey;
+  }
+
+	.block {
+    @include flex-column-screen;
+    
+    width: 100vw;
+    max-width: 100%;
+	}
+
+	button,
+  a {
+    cursor: pointer;
+    @include width-220;
+    @include flex;
+    gap: .5rem;
+		padding: $spacing-10 $spacing-20;
+		font-size: 1rem;
+		color: $white;
+		background-color: $blue;
+	}
+
+  button {
+		border: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+	.cards-container {
+    @include flex;
+		gap: $spacing-20;
+	}
+
+  input {
+    @include width-220;
+    padding: $spacing-20;
+  }
+}
