@@ -1,8 +1,6 @@
-import Card from "../../shared/UI/card/card"
-import SvgAlert from "../../shared/UI/svg/svg-alert"
-import SvgGoFurther from "../../shared/UI/svg/svg-go-further"
+import Card from "@shared/UI/card/card"
+import { SvgAlert, SvgGoFurther } from "@shared/UI/svg"
 import styles from "./landing.module.scss"
-
 
 const Landing = () => {
 
