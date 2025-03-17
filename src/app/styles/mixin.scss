@@ -2,9 +2,9 @@
 
 @mixin flex {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 @mixin flex-column {
@@ -17,12 +17,12 @@
   @include flex-column;
 
   gap: $spacing-10;
+  height: 100vh;
   padding: $spacing-20;
   text-align: center;
-  height: 100vh;
 }
 
 @mixin width-220 {
-  max-width: 220px;
   width: 100%;
+  max-width: 220px;
 }
