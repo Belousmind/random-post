@@ -6,9 +6,9 @@ import styles from "./landing.module.scss";
 
 const Landing = () => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const titelsArr: string[] = ["Карточка 1", "Карточка 2"];
+  const titlesArr: string[] = ["Карточка 1", "Карточка 2"];
 
-  const cards = titelsArr.map((item) => {
+  const cards = titlesArr.map((item) => {
     return <Card title={item} />;
   });
 
