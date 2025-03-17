@@ -1,8 +1,11 @@
+import { useRef } from "react";
+import showAlertMessage from "@shared/helpers/to-alert-message";
 import Card from "@shared/UI/card/card";
 import { SvgAlert, SvgGoFurther } from "@shared/UI/svg";
 import styles from "./landing.module.scss";
 
 const Landing = () => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const titelsArr: string[] = ["Карточка 1", "Карточка 2"];
 
   const cards = titelsArr.map((item) => {
@@ -26,11 +29,11 @@ const Landing = () => {
 
       <section className={styles.block}>
         <h3>Интерактив?</h3>
-        <input type="text" placeholder="Напишите тут что-нибудь" />
+        <input ref={inputRef} type="text" placeholder="Напишите тут что-нибудь" />
         <a className={styles["action-trigger"]} href="#first-screen">
           Вернуться <SvgGoFurther />
         </a>
-        <button className={styles["action-trigger"]}>
+        <button className={styles["action-trigger"]} onClick={() => showAlertMessage(inputRef)}>
           Вывести текст в alert <SvgAlert />
         </button>
       </section>
