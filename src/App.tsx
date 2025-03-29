@@ -1,5 +1,7 @@
 import './App.css'
-import type { NavigationSection, NavigationGroup } from './types/navigation'
+import type { NavigationSection, NavigationGroup } from './shared/types/navigation'
+import { Vacancies, Candidates, Clients, Partners, Events } from './pages'
+import { Link, Route, Routes } from 'react-router-dom'
 
 const USER_READ_PERMISSIONS = ['vacancies', 'users', 'candidates', 'clients', 'partners']
 
@@ -112,56 +114,38 @@ function App() {
   )
 
   return (
-    <div className="container">
+    <>
       <div className="container">
-        <div className="navigation">
-          {navigationListWithPermission.map((section) => (
-            <div key={section.name} className="navigation-level-1">
-              {section.text}
-              {section.children.map((group) => (
-                <div key={group.name} className="navigation-level-2">
-                  {group.text}
-                  <div className="navigation-level-3">
-                    {group.children.map((route) => (
-                      <div key={route.name}>{route.text}</div>
-                    ))}
+        <div className="container">
+          <div className="navigation">
+            {navigationListWithPermission.map((section) => (
+              <div key={section.name} className="navigation-level-1">
+                {section.text}
+                {section.children.map((group) => (
+                  <div key={group.name} className="navigation-level-2">
+                    {group.text}
+                    <div className="navigation-level-3">
+                      {group.children.map((route) => (
+                        <Link to={route.getLink()} key={route.name}>
+                          {route.text}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ))}
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* <div className="navigation">
-        <div className="navigation-level-1">
-          Контент
-          <div className="navigation-level-2">
-            Работа
-            <div className="navigation-level-3">
-              {checkHasUserPermission('vacancies') && <div>Вакансии</div>}
-              {checkHasUserPermission('candidates') && <div>Кандидаты</div>}
-            </div>
-          </div>
-          <div className="navigation-level-2">
-            Новости
-            <div className="navigation-level-3">
-              {checkHasUserPermission('events') && <div>События</div>}
-            </div>
-          </div>
-        </div>
-        <div className="navigation-level-1">
-          Пользователи
-          <div className="navigation-level-2">
-            Клиенты
-            <div className="navigation-level-3">
-              {checkHasUserPermission('clients') && <div>Клиенты</div>}
-              {checkHasUserPermission('partners') && <div>Партнеры</div>}
-            </div>
-          </div>
-        </div>
-      </div> */}
-    </div>
+      <Routes>
+        <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/candidates" element={<Candidates />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/partners" element={<Partners />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
+    </>
   )
 }
 
