@@ -1,15 +1,11 @@
 import './App.css'
+import type { NavigationSection, NavigationGroup } from './types/navigation'
 
 const USER_READ_PERMISSIONS = ['vacancies', 'users', 'candidates', 'clients', 'partners']
 
-const checkHasUserPermission = (routeName) => {
+const checkHasUserPermission = (routeName: string): boolean => {
   return USER_READ_PERMISSIONS.includes(routeName)
 }
-
-// Со звездочкой проверка прав асинхронная
-// const checkHasUserPermission = async (routeName) => {
-// 	return USER_READ_PERMISSIONS.includes(routeName)
-// }
 
 const routes = {
   vacancies: {
@@ -74,9 +70,39 @@ const navigationList = [
   },
 ]
 
-// Нужно написать функцию
-const generateNavigationListWithPermissions = (navigationList, checkPermission) => {
-  return []
+const generateNavigationListWithPermissions = (
+  navigationList: NavigationSection[],
+  checkPermission: (routeName: string) => boolean
+): NavigationSection[] => {
+  return navigationList
+    .map((level1Item) => {
+      const level2WithPermission = level1Item.children
+        .map((level2Item) => {
+          const level3WithPermission = level2Item.children.filter((route) =>
+            checkPermission(route.name)
+          )
+
+          if (level3WithPermission.length > 0) {
+            return {
+              ...level2Item,
+              children: level3WithPermission,
+            }
+          }
+
+          return null
+        })
+        .filter(Boolean) as NavigationGroup[]
+
+      if (level2WithPermission.length > 0) {
+        return {
+          ...level1Item,
+          children: level2WithPermission,
+        }
+      }
+
+      return null
+    })
+    .filter(Boolean) as NavigationSection[]
 }
 
 function App() {
@@ -87,9 +113,27 @@ function App() {
 
   return (
     <div className="container">
-      {navigationListWithPermission.map((item) => item)}
+      <div className="container">
+        <div className="navigation">
+          {navigationListWithPermission.map((section) => (
+            <div key={section.name} className="navigation-level-1">
+              {section.text}
+              {section.children.map((group) => (
+                <div key={group.name} className="navigation-level-2">
+                  {group.text}
+                  <div className="navigation-level-3">
+                    {group.children.map((route) => (
+                      <div key={route.name}>{route.text}</div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div className="navigation">
+      {/* <div className="navigation">
         <div className="navigation-level-1">
           Контент
           <div className="navigation-level-2">
@@ -116,7 +160,7 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
