@@ -1,3 +1,4 @@
+import './Navigation-sidebar.css'
 import { Link } from 'react-router-dom'
 import {
   navigationList,
@@ -12,7 +13,7 @@ export const NavigationSidebar = () => {
   )
 
   return (
-    <aside className="container">
+    <aside className="sidebar">
       <nav className="navigation">
         {navigationListWithPermission.map((section) => (
           <div key={section.name} className="navigation-level-1">

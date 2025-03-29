@@ -11,10 +11,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@pages": path.resolve(__dirname, "./src/pages"),
-      "@services": path.resolve(__dirname, "./src/shared/services"),
-      "@types": path.resolve(__dirname, "./src/shared/types"),
-      "@UI": path.resolve(__dirname, "./src/shared/UI"),
-    }
-  }
+      '@pages': path.resolve(__dirname, './src/pages'),
+      '@services': path.resolve(__dirname, './src/shared/services'),
+      '@types': path.resolve(__dirname, './src/shared/types'),
+      '@UI': path.resolve(__dirname, './src/shared/UI'),
+    },
+  },
 })

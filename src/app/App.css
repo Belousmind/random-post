@@ -1,30 +1,4 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
-  min-height: 100vh;
-}
-
-.navigation {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.navigation-level-1 {
-  margin: 20px 0;
-}
-
-.navigation-level-2 {
-  padding-left: 20px;
-  margin: 10px 0;
-}
-
-.navigation-level-3 {
-  padding-left: 20px;
-  margin: 10px 0;
-}
-
-a {
-  text-decoration: none;
+main {
+  flex: 2;
+  padding: 0 12px;
 }

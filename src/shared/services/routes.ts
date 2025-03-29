@@ -27,7 +27,7 @@ const routes = {
     name: 'partners',
     pathname: 'partners',
     getLink: () => '/partners',
-    text: 'Клиенты',
+    text: 'Партнеры',
   },
 }
 export default routes
