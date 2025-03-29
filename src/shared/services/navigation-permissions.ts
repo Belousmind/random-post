@@ -1,4 +1,4 @@
-import type { NavigationSection, NavigationGroup } from '@shared/types/navigation'
+import type { NavigationSection, NavigationGroup } from '@t/navigation'
 
 export const USER_READ_PERMISSIONS = ['vacancies', 'users', 'candidates', 'clients', 'partners']
 

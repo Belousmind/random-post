@@ -8,10 +8,14 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@shared": ["src/shared"],
-      "@shared/*": ["src/shared/*"],
       "@pages": ["src/pages"],
       "@pages/*": ["src/pages/*"],
+      "@services": ["src/shared/services"],
+      "@services/*": ["src/shared/services/*"],
+      "@t": ["src/shared/types"],
+      "@t/*": ["src/shared/types/*"],
+      "@UI": ["src/shared/UI"],
+      "@UI/*": ["src/shared/UI/*"]
     },
 
     /* Bundler mode */
