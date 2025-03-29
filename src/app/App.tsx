@@ -1,19 +1,46 @@
 import './App.css'
-import { Vacancies, Candidates, Clients, Partners, Events } from '@pages'
-import { Route, Routes } from 'react-router-dom'
-import NavigationSidebar from '@UI/Navigation-sidebar'
+import { Route, Routes, Navigate } from 'react-router-dom'
+import { checkHasUserPermission } from '@services'
+import routes from '@services/routes'
+import {
+  Vacancies,
+  Candidates,
+  Clients,
+  Partners,
+  Events,
+  NavigationPage,
+  NotFoundPage,
+} from '@pages'
+
+type RouteName = keyof typeof routes
+
+const COMPONENTS: Record<string, React.FC> = {
+  vacancies: Vacancies,
+  candidates: Candidates,
+  clients: Clients,
+  partners: Partners,
+  events: Events,
+}
 
 function App() {
+  const permittedRouteNames: RouteName[] = Object.keys(routes).filter((name): name is RouteName =>
+    checkHasUserPermission(name)
+  )
+
   return (
     <>
-      <NavigationSidebar />
       <main>
         <Routes>
-          <Route path="/vacancies" element={<Vacancies />} />
-          <Route path="/candidates" element={<Candidates />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/" element={<Navigate to="/navigation" replace />} />
+          <Route path="/navigation" element={<NavigationPage />} />
+          {permittedRouteNames.map((name) => {
+            const route = routes[name]
+            const Component = COMPONENTS[name]
+            if (!route || !Component) return null
+
+            return <Route key={name} path={route.getLink()} element={<Component />} />
+          })}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
     </>
