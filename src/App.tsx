@@ -1,6 +1,6 @@
 import './App.css'
-import type { NavigationSection, NavigationGroup } from './shared/types/navigation'
-import { Vacancies, Candidates, Clients, Partners, Events } from './pages'
+import type { NavigationSection, NavigationGroup } from '@shared/types/navigation' 
+import { Vacancies, Candidates, Clients, Partners, Events } from '@pages'
 import { Link, Route, Routes } from 'react-router-dom'
 
 const USER_READ_PERMISSIONS = ['vacancies', 'users', 'candidates', 'clients', 'partners']
