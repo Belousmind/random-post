@@ -1,5 +1,5 @@
 import './App.css'
-import type { NavigationSection, NavigationGroup } from '@shared/types/navigation' 
+import type { NavigationSection, NavigationGroup } from '@shared/types/navigation'
 import { Vacancies, Candidates, Clients, Partners, Events } from '@pages'
 import { Link, Route, Routes } from 'react-router-dom'
 
@@ -115,36 +115,36 @@ function App() {
 
   return (
     <>
-      <div className="container">
-        <div className="container">
-          <div className="navigation">
-            {navigationListWithPermission.map((section) => (
-              <div key={section.name} className="navigation-level-1">
-                {section.text}
-                {section.children.map((group) => (
-                  <div key={group.name} className="navigation-level-2">
-                    {group.text}
-                    <div className="navigation-level-3">
-                      {group.children.map((route) => (
-                        <Link to={route.getLink()} key={route.name}>
-                          {route.text}
-                        </Link>
-                      ))}
-                    </div>
+      <aside className="container">
+        <nav className="navigation">
+          {navigationListWithPermission.map((section) => (
+            <div key={section.name} className="navigation-level-1">
+              {section.text}
+              {section.children.map((group) => (
+                <div key={group.name} className="navigation-level-2">
+                  {group.text}
+                  <div className="navigation-level-3">
+                    {group.children.map((route) => (
+                      <Link to={route.getLink()} key={route.name}>
+                        {route.text}
+                      </Link>
+                    ))}
                   </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      <Routes>
-        <Route path="/vacancies" element={<Vacancies />} />
-        <Route path="/candidates" element={<Candidates />} />
-        <Route path="/clients" element={<Clients />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/events" element={<Events />} />
-      </Routes>
+                </div>
+              ))}
+            </div>
+          ))}
+        </nav>
+      </aside>
+      <main>
+        <Routes>
+          <Route path="/vacancies" element={<Vacancies />} />
+          <Route path="/candidates" element={<Candidates />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/events" element={<Events />} />
+        </Routes>
+      </main>
     </>
   )
 }
