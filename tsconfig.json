@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@shared": ["src/shared"],
+      "@shared/*": ["src/shared/*"],
+      "@pages/": ["src/pages/"],
+      "@pages/*": ["src/pages/*"],
+      "@app/": ["src/app"],
+      "@app/*": ["src/app/*"],
+      "@styles/": ["src/styles/"],
+      "@styles/*": ["src/styles/*"]
+    },
+    "jsx": "react-jsx"
+  }
+}

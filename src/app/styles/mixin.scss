@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  @include flex;
+
+  flex-direction: column;
+}
+
+@mixin flex-column-screen {
+  @include flex-column;
+
+  gap: $spacing-10;
+  height: 100vh;
+  padding: $spacing-20;
+  text-align: center;
+}
+
+@mixin width-220 {
+  width: 100%;
+  max-width: 220px;
+}
