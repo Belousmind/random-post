@@ -1,9 +1,9 @@
 import styles from './random-post.module.scss'
 import { useState } from "react";
-import { fetchRandomPost, Post } from "../../shared/api/fetch-posts";
-import { getRandomNumber } from "../../shared/helpers/get-random-number";
+import { fetchRandomPost, Post } from "@api/fetch-posts";
+import { getRandomNumber } from "@helpers/get-random-number";
 
-const GetRandomPostPage = () => {
+const RandomPostPage = () => {
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -36,4 +36,4 @@ const GetRandomPostPage = () => {
   );
 };
 
-export default GetRandomPostPage;
+export default RandomPostPage;

@@ -1,4 +1,4 @@
-import { apiClient } from "../services/request";
+import { apiClient } from "@services/request";
 
 export type Post = {
   id: number;

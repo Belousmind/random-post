@@ -6,6 +6,14 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": ["src/shared/api/*"],
+      "@helpers/*": ["src/shared/helpers/*"],
+      "@services/*": ["src/shared/services/*"],
+      "@UI/*": ["src/shared/UI/*"],
+      "@pages/*": ["src/pages/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

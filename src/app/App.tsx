@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { routes } from "../shared/services/routes";
-import Header from "../shared/UI/header";
-import GetRandomPostPage from "../pages/get-random-post/get-random-post";
-import Main from "../pages/main/main";
+import { routes } from "@services/routes";
+import Header from "@UI/header";
+import RandomPostPage from "@pages/random-post/random-post";
+import Main from "@pages/main/main";
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path={routes.main.getLink()} element={<Main/>} />
-          <Route path={routes.randomPost.getLink()} element={<GetRandomPostPage />} />
+          <Route path={routes.main.pathname} element={<Main/>} />
+          <Route path={routes.randomPost.pathname} element={<RandomPostPage />} />
         </Routes>
       </BrowserRouter>
     </>
