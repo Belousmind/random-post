@@ -1,0 +1,7 @@
+export { default as Vacancies } from './Vacancies'
+export { default as Candidates } from './Candidates'
+export { default as Clients } from './Clients'
+export { default as Partners } from './Partners'
+export { default as Events } from './Events'
+export { default as NavigationPage } from './Navigation-page'
+export { default as NotFoundPage } from './Not-found-page'
